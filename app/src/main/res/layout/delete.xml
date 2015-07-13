@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ww"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+       >
+
+        <TextView
+            android:id="@+id/tv5"
+            android:textColor="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="要删除的科目：" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/edt1"
+            android:alpha="0.3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv5" >
+        </EditText>
+        </RelativeLayout>
+         <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+       >
+
+        <TextView
+            android:id="@+id/tvweek"
+            android:textColor="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="要删除的是星期几的课：" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/edtweek"
+            android:alpha="0.3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tvweek" >
+        </EditText>
+    </RelativeLayout>
+    
+          <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+       >
+
+        <TextView
+            android:id="@+id/tvtime"
+            android:textColor="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="要删除的是第几大节的课：" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/edttime"
+            android:alpha="0.3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tvtime" >
+        </EditText>
+    </RelativeLayout>
+<RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+         >
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消" >
+        </Button>
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/btn1" 
+            android:text="确定">
+        </Button>
+    </RelativeLayout>
+
+</LinearLayout>
