@@ -1,11 +1,6 @@
 package com.panwix.classtable;
 
-import com.hpw.classtable.database.ClassDao;
-import com.hpw.classtable.database.DBService;
-import com.hpw.classtable.database.DBhelper;
-
 import android.app.Activity;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -13,6 +8,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.panwix.classtable.database.DBhelper;
 
 public class deleteActivity extends Activity {
 

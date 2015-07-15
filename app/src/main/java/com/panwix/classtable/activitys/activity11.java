@@ -1,18 +1,17 @@
 package com.panwix.classtable.activitys;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-
-import com.hpw.classtable.MainActivity;
-import com.hpw.classtable.R;
-import com.hpw.classtable.database.ClassDao;
-import com.hpw.classtable.database.DBService;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.panwix.classtable.R;
+import com.panwix.classtable.database.ClassDao;
+import com.panwix.classtable.database.DBService;
+
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 public class activity11 extends Activity {
 

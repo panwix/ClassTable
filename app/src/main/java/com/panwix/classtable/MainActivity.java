@@ -1,18 +1,19 @@
 package com.panwix.classtable;
 
-import java.util.Map;
-
-import com.hpw.classtable.activitys.activity11;
-import com.hpw.classtable.database.ClassDao;
-import com.hpw.classtable.database.DBService;
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+
+import com.panwix.classtable.activitys.activity11;
+import com.panwix.classtable.database.ClassDao;
+import com.panwix.classtable.database.DBService;
+
+import java.util.Map;
 
 public class MainActivity extends Activity {
 
