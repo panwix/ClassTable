@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ee">
     <TableRow
         android:layout_weight="1">
         <TextView
@@ -9,28 +12,37 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="周一"
-            />
+            android:textColor="#000"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="周二"/>
+            android:gravity="center"
+            android:text="周二"
+            android:textColor="#000"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="周三"/>
+            android:gravity="center"
+            android:text="周三"
+            android:textColor="#000"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="周四"/>
+            android:gravity="center"
+            android:text="周四"
+            android:textColor="#000"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="周五"/>
+            android:gravity="center"
+            android:text="周五"
+            android:textColor="#000"/>
     </TableRow>
     <TableRow
         android:layout_weight="1">
@@ -38,24 +50,73 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="第一节"/>
+            android:gravity="center"
+            android:text="第一节"
+            android:textColor="#000"/>
         <TextView
+            android:id="@+id/c11"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/c21"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/c31"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/c41"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/c51"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="#000"/>
+    </TableRow>
+    <TableRow
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="第二节"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/c12"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/c22"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/c32"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/c42"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
+            android:id="@+id/c52"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
@@ -66,52 +127,30 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="第二节" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-    </TableRow>
-    <TableRow
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:gravity="center"
             android:text="第三节"/>
         <TextView
+            android:id="@+id/c13"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/c23"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/c33"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/c43"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/c53"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
@@ -122,24 +161,30 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="第四节"/>
         <TextView
+            android:id="@+id/c14"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/c24"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/c34"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/c44"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/c54"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
@@ -150,24 +195,30 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="第五节"/>
         <TextView
+            android:id="@+id/c15"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/c25"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/c35"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/c45"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/c55"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
@@ -179,24 +230,33 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="第六节"/>
         <TextView
+            android:id="@+id/c16"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/c26"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/c36"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/c46"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
-        <TextView />
+        <TextView
+            android:id="@+id/c56"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
     </TableRow>
     <TableRow
         android:layout_weight="1">
@@ -204,6 +264,41 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center"
+            android:text="第七节"/>
+        <TextView
+            android:id="@+id/c17"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/c27"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/c37"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/c47"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/c57"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </TableRow>
+    <TableRow
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="第八节"/>
         <TextView
             android:layout_width="match_parent"
