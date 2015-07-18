@@ -2,10 +2,25 @@ package com.panwix.classtable;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
+public class MainActivity extends Activity implements Runnable{
+
+	// 日期
+	public TextView date;
+	// 第几周
+	public TextView week;
+	// 时间
+	public TextView time;
+	// 学期开始日期
+	public Date startDate;
 	// 周一的课；
 	public TextView c11;
 	public TextView c12;
@@ -71,11 +86,18 @@ public class MainActivity extends Activity {
 	public TextView c510;
 	public TextView c511;
 
+	Handler handler = new Handler();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_layout);
-
+		startDate = new Date(2015-7-1);
+		// 日期
+		date = (TextView)findViewById(R.id.date);
+		// 第几周
+		week = (TextView)findViewById(R.id.weekNo);
+		// 时间
+		time = (TextView)findViewById(R.id.time);
 		// 绑定周一的课的TextView
 		c11 = (TextView)findViewById(R.id.c11);
 		c12 = (TextView)findViewById(R.id.c12);
@@ -137,7 +159,97 @@ public class MainActivity extends Activity {
 		c510 = (TextView)findViewById(R.id.c510);
 		c511 = (TextView)findViewById(R.id.c511);
 
+		// 设置第几周
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date d1=sdf.parse("2015-07-06");
+			Date d2=new Date();
+			int num = getWeedNo(d1,d2);
+			String numStr = "第" + num + "周";
+			week.setText(numStr);
+		} catch (ParseException e){
+			e.printStackTrace();
+		}
+
+		// 动态设置时间日期
+		handler = new Handler() {
+			public void handleMessage(Message msg) {
+				switch (msg.what){
+					case 100:
+						time.setText((String)msg.obj);
+						break;
+					case 101:
+						date.setText((String)msg.obj);
+						break;
+				}
+
+			}
+		};
+		new Thread(this).start();
 	}
 
+	// 获取当前日期
+	public String getDate(){
+		Calendar c = Calendar.getInstance();
+		int year = c.get(Calendar.YEAR);
+		int month = c.get(Calendar.MONTH);
+		int date = c.get(Calendar.DATE);
+		return year + "-" + (month+1) + "-" + date;
+	}
+	// 获取当前时间
+	public String getTime(){
+		Calendar c = Calendar.getInstance();
+		int hour = c.get(Calendar.HOUR_OF_DAY);
+		int minute = c.get(Calendar.MINUTE);
+		String hourS;
+		String minuteS;
+		if(hour<10)
+			hourS = "0" + hour;
+		else
+			hourS = "" + hour;
+		if(minute<10)
+			minuteS = "0" + minute;
+		else
+			minuteS = "" + minute;
+		return hourS + ":" + minuteS;
+	}
+
+	// 取得现在的周数
+	public int getWeedNo(Date dateS, Date dateD) throws ParseException {
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		dateS=sdf.parse(sdf.format(dateS));
+		dateD=sdf.parse(sdf.format(dateD));
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(dateS);
+		long time1 = cal.getTimeInMillis();
+		int week = cal.get(Calendar.DAY_OF_WEEK);
+		cal.setTime(dateD);
+		long time2 = cal.getTimeInMillis();
+		long between_days=(time2-time1)/(1000*3600*24);
+		if(week == 1)
+			week = 8;
+		int weekNo = (Integer.parseInt(String.valueOf(between_days)) + week - 1)/7;
+		int weekNo2 = (Integer.parseInt(String.valueOf(between_days)) + week - 1)%7;
+		if(weekNo2 != 0)
+			weekNo++;
+		return weekNo;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		try {
+			while(true){
+				String time = getTime();
+				String date = getDate();
+				handler.sendMessage(handler.obtainMessage(100,time));
+				handler.sendMessage(handler.obtainMessage(101,date));
+				Thread.sleep(1000);
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }
