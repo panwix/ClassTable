@@ -24,4 +24,10 @@
     <!-- Backward-compatible version of ?android:attr/buttonBarButtonStyle -->
     <style name="ButtonBarButton" />
 
+    <style name="textview_allgrade_content">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">1dip</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:clickable">true</item>
+    </style>
 </resources>
