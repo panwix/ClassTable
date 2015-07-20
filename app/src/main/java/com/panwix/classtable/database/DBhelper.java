@@ -16,15 +16,12 @@ public class DBhelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE Class(id INTEGER PRIMARY KEY AUTOINCREMENT,class VARCHAR(64),classroom VARCHAR(64),teacher VARCHAR(64),tel VARCHAR(64),phone VARCHAR(64),email VARCHAR(64),office VARCHAR(64),week VARCHAR(64),classTime VARCHER(64))");
-		//db.execSQL("CREATE TABLE  ClassName(id INTEGER  PRIMARY KEY AUTOINCREMENT,class VARCHAR(64), address VARCHAR(64))");
-		//db.execSQL("CREATE TABLE  ClassTeacher(id INTEGER PRIMARY KEY AUTOINCREMENT,class VARCHAR(64) ,teacher VARCHAR(64),tel VARCHAR(64),phone VARCHAR(64),email VARCHAR(64),office VARCHAR(64))");
-		//db.execSQL("CREATE TABLE  ClassTime(id INTEGER PRIMARY KEY AUTOINCREMENT,class VARCHAR(64),week VARCHAR(64),weeknumber INTEGER,time VARCHAR(64))");
+		db.execSQL("CREATE TABLE Class(id INTEGER PRIMARY KEY AUTOINCREMENT,class VARCHAR(64),classroom VARCHAR(64),teacher VARCHAR(64),tel VARCHAR(64),phone VARCHAR(64),email VARCHAR(64),office VARCHAR(64),week VARCHAR(64),classStart VARCHAR(64),classEnd VARCHAR(64),classTime VARCHAR(64))");
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		db.execSQL("CREATE TABLE Class(id INTEGER PRIMARY KEY AUTOINCREMENT,class VARCHAR(64),classroom VARCHAR(64),teacher VARCHAR(64),tel VARCHAR(64),phone VARCHAR(64),email VARCHAR(64),office VARCHAR(64),week VARCHAR(64),classTime VARCHER(64))");
+		db.execSQL("CREATE TABLE Class(id INTEGER PRIMARY KEY AUTOINCREMENT,class VARCHAR(64),classroom VARCHAR(64),teacher VARCHAR(64),tel VARCHAR(64),phone VARCHAR(64),email VARCHAR(64),office VARCHAR(64),week VARCHAR(64),classStart VARCHAR(64),classEnd VARCHAR(64),classTime VARCHAR(64))");
 
 	}
 

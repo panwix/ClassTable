@@ -1,10 +1,17 @@
 package com.panwix.classtable;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.panwix.classtable.database.DBhelper;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,8 +24,10 @@ public class MainActivity extends Activity implements Runnable{
 	public TextView date;
 	// 第几周
 	public TextView week;
+	int weekNum;
 	// 时间
 	public TextView time;
+
 	// 学期开始日期
 	public Date startDate;
 	// 周一的课；
@@ -87,16 +96,17 @@ public class MainActivity extends Activity implements Runnable{
 	public TextView c511;
 
 	Handler handler = new Handler();
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_layout);
 		startDate = new Date(2015-7-1);
-		// 日期
+		// 日期TextView
 		date = (TextView)findViewById(R.id.date);
-		// 第几周
+		// 第几周TextView
 		week = (TextView)findViewById(R.id.weekNo);
-		// 时间
+		// 时间TextView
 		time = (TextView)findViewById(R.id.time);
 		// 绑定周一的课的TextView
 		c11 = (TextView)findViewById(R.id.c11);
@@ -164,12 +174,78 @@ public class MainActivity extends Activity implements Runnable{
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			Date d1=sdf.parse("2015-07-06");
 			Date d2=new Date();
-			int num = getWeedNo(d1,d2);
-			String numStr = "第" + num + "周";
+			weekNum = getWeedNo(d1,d2);
+			String numStr = "第" + weekNum + "周";
 			week.setText(numStr);
 		} catch (ParseException e){
 			e.printStackTrace();
 		}
+
+        // TextView中设置相应的课程
+        String mClass[][] = new String[5][11];
+        for(int i=0; i<5; i++){
+            for(int j=0; j<10; j++){
+                String week = Integer.toString(i+1);
+                String time = Integer.toString(j+1);
+                String weekNumS = weekNum + "";
+                mClass[i][j] = getClass(week, time, weekNumS);
+            }
+        }
+        c11.setText(mClass[0][0]);
+        c12.setText(mClass[0][1]);
+        c13.setText(mClass[0][2]);
+        c14.setText(mClass[0][3]);
+        c15.setText(mClass[0][4]);
+        c16.setText(mClass[0][5]);
+        c17.setText(mClass[0][6]);
+        c18.setText(mClass[0][7]);
+        c19.setText(mClass[0][8]);
+        c110.setText(mClass[0][9]);
+        c111.setText(mClass[0][10]);
+        c21.setText(mClass[1][0]);
+        c22.setText(mClass[1][1]);
+        c23.setText(mClass[1][2]);
+        c24.setText(mClass[1][3]);
+        c25.setText(mClass[1][4]);
+        c26.setText(mClass[1][5]);
+        c27.setText(mClass[1][6]);
+        c28.setText(mClass[1][7]);
+        c29.setText(mClass[1][8]);
+        c210.setText(mClass[1][9]);
+        c211.setText(mClass[1][10]);
+        c31.setText(mClass[2][0]);
+        c32.setText(mClass[2][1]);
+        c33.setText(mClass[2][2]);
+        c34.setText(mClass[2][3]);
+        c35.setText(mClass[2][4]);
+        c36.setText(mClass[2][5]);
+        c37.setText(mClass[2][6]);
+        c38.setText(mClass[2][7]);
+        c39.setText(mClass[2][8]);
+        c310.setText(mClass[2][9]);
+        c311.setText(mClass[2][10]);
+        c41.setText(mClass[3][0]);
+        c42.setText(mClass[3][1]);
+        c43.setText(mClass[3][2]);
+        c44.setText(mClass[3][3]);
+        c45.setText(mClass[3][4]);
+        c46.setText(mClass[3][5]);
+        c47.setText(mClass[3][6]);
+        c48.setText(mClass[3][7]);
+        c49.setText(mClass[3][8]);
+        c410.setText(mClass[3][9]);
+        c411.setText(mClass[3][10]);
+        c51.setText(mClass[4][0]);
+        c52.setText(mClass[4][1]);
+        c53.setText(mClass[4][2]);
+        c54.setText(mClass[4][3]);
+        c55.setText(mClass[4][4]);
+        c56.setText(mClass[4][5]);
+        c57.setText(mClass[4][6]);
+        c58.setText(mClass[4][7]);
+        c59.setText(mClass[4][8]);
+        c510.setText(mClass[4][9]);
+        c511.setText(mClass[4][10]);
 
 		// 动态设置时间日期
 		handler = new Handler() {
@@ -234,6 +310,38 @@ public class MainActivity extends Activity implements Runnable{
 			weekNo++;
 		return weekNo;
 	}
+    // 从数据库中获取课程
+    public String getClass(String week, String time, String weekNum){
+        DBhelper helper = new DBhelper(getBaseContext());
+        String sql = "select * from Class where week = ? and classTime =?";
+        SQLiteDatabase database = helper.getWritableDatabase();
+        Cursor cursor = database.rawQuery(sql, new String[]{week, time});
+        String result = "";
+        // 课程开始周
+        String weekStart="0";
+        // 课程结束周
+        String weekEnd="0";
+        int i = cursor.getCount();
+        if(i>0){
+            cursor.moveToFirst();
+            result = cursor.getString(cursor.getColumnIndex("class"));
+            weekStart = cursor.getString(cursor.getColumnIndex("classStart"));
+            weekEnd = cursor.getString(cursor.getColumnIndex("classEnd"));
+            while(--i>0 && !(Integer.parseInt(weekStart) <= Integer.parseInt(weekNum))
+                    && !(Integer.parseInt(weekEnd)>=Integer.parseInt(weekNum))){
+                cursor.moveToNext();
+                result = cursor.getString(cursor.getColumnIndex("class"));
+                weekStart = cursor.getString(cursor.getColumnIndex("classStart"));
+                weekEnd = cursor.getString(cursor.getColumnIndex("classEnd"));
+            }
+        }
+        if(Integer.parseInt(weekStart) <= Integer.parseInt(weekNum)
+                && Integer.parseInt(weekEnd)>=Integer.parseInt(weekNum)){
+            return result;
+        }else{
+            return "";
+        }
+    }
 
 	@Override
 	public void run() {
@@ -252,4 +360,38 @@ public class MainActivity extends Activity implements Runnable{
 		}
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		menu.add(0, 0, 0, "添加添加课程");
+		menu.add(0, 1, 1, "删除课程");
+        menu.add(0, 2, 2, "退出");
+
+		return super.onCreateOptionsMenu(menu);
+	}
+
+
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		super.onOptionsItemSelected(item);
+		switch (item.getItemId()) {
+			//  跳转到添加课程页面
+			case 0:
+				Intent intent = new Intent();
+				intent.setClass(MainActivity.this, addActivity.class);
+				startActivity(intent);
+				finish();
+				break;
+			// 跳转到删除课程页面
+			case 1:
+				Intent intent2 = new Intent();
+				intent2.setClass(MainActivity.this, deleteActivity.class);
+				startActivity(intent2);
+				finish();
+				break;
+            // 退出应用程序
+            case 2:
+                finish();
+		}
+		return super.onMenuItemSelected(featureId, item);
+	}
 }

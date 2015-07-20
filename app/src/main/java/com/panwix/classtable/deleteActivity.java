@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -13,41 +12,44 @@ import com.panwix.classtable.database.DBhelper;
 
 public class deleteActivity extends Activity {
 
-	private EditText edt;
-	private Button btn1;
-	private Button btn2;
-	private EditText edtweek;
-	private EditText edttime;
+	private EditText edtWeekStart;
+	private EditText edtWeekEnd;
+	private Button sureBtn;
+	private Button cancelBtn;
+	private EditText edtWeek;
+	private EditText edtTime;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.delete);
 
-		edt = (EditText)findViewById(R.id.edt1);
-		btn1 = (Button)findViewById(R.id.btn1);
-		btn2 = (Button)findViewById(R.id.btn2);
-		edtweek=(EditText)findViewById(R.id.edtweek);
-		edttime = (EditText)findViewById(R.id.edttime);
+		edtWeekStart = (EditText)findViewById(R.id.edtWeedStart);
+		edtWeekEnd = (EditText)findViewById(R.id.edtWeedEnd);
+		edtWeek = (EditText)findViewById(R.id.edtWeek);
+		edtTime = (EditText)findViewById(R.id.edtTime);
+		sureBtn=(Button)findViewById(R.id.sureBtn);
+		cancelBtn = (Button)findViewById(R.id.cancelBtn);
 
-		btn2.setOnClickListener(new OnClickListener() {
+		sureBtn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 
 				DBhelper helper = new DBhelper(getBaseContext());
 				SQLiteDatabase database = helper.getWritableDatabase();
-				//DBService service = new ClassDao(getBaseContext());
-				String deleteclass = edt.getText().toString();
-				String timestr = edttime.getText().toString();
-				String weeknumberstr = edtweek.getText().toString();
-				String classTime = timestr+weeknumberstr;
-				if(classTime!=""){
-					
-				//boolean flag = service.deleteClass("class=?,classTime=?", new String[]{deleteclass,classTime});
-				String sql = ("delete from Class where classTime = "+classTime);
-				database.execSQL(sql);
+				String edtWeekStartStr = edtWeekStart.getText().toString();
+				String edtWeekEndStr = edtWeekEnd.getText().toString();
+				String edtWeekStr = edtWeek.getText().toString();
+				String edtTimeStr = edtTime.getText().toString();
+				if (!edtWeekStartStr.equals("")
+						&& !edtWeekEndStr.equals("")
+						&& !edtWeekStr.equals("")
+						&& !edtTimeStr.equals("")) {
+					String sql = ("delete from Class where  week= " +edtWeekStr+"classTime = "
+							+ edtTimeStr + "classStart = "
+							+ edtWeekStartStr +"classEnd = "
+							+ edtWeekEndStr );
+					database.execSQL(sql);
 				}
-				//System.out.println("delete------>"+flag);
-
 				Intent intent = new Intent();
 				intent.setClass(deleteActivity.this, MainActivity.class);
 				startActivity(intent);
@@ -56,11 +58,10 @@ public class deleteActivity extends Activity {
 			}
 		});
 
-		btn1.setOnClickListener(new OnClickListener() {
-			
+		cancelBtn.setOnClickListener(new View.OnClickListener() {
+
 			@Override
 			public void onClick(View v) {
-
 				Intent intent = new Intent();
 				intent.setClass(deleteActivity.this, MainActivity.class);
 				startActivity(intent);

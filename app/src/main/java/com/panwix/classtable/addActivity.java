@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -13,42 +13,42 @@ import com.panwix.classtable.database.ClassDao;
 import com.panwix.classtable.database.DBService;
 import com.panwix.classtable.database.DBhelper;
 
-public class addActivity extends Activity {
+public class addActivity extends Activity{
 
-	private Button sure;
-	private Button cancel;
-	private EditText mclass;
-	private EditText mclassroom;
-	private EditText mteacher;
-	private EditText mtel;
-	private EditText moffice;
-	private EditText mphone;
-	private EditText mEmail;
-	private EditText mweek;
-	private  EditText mweeknumber;
-	private  EditText mtime;
-	//String weeknumberstr;
-	//String timestr;
+	private EditText mClass;
+	private EditText mClassRoom;
+	private EditText mTeacher;
+	private EditText mTeacherRoom;
+	private EditText mWeekStart;
+	private EditText mWeekEnd;
+	private EditText classWeekNo;
+	private EditText classNo;
+	private EditText tEmail;
+	private EditText tTel;
+	private EditText tPhone;
+	private Button sureBtn;
+	private Button cancelBtn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add);
 
-		sure = (Button) findViewById(R.id.btn10);
-		cancel = (Button) findViewById(R.id.btn9);
-		mclass = (EditText) findViewById(R.id.et0);
-		mclassroom = (EditText) findViewById(R.id.et1);
-		mteacher = (EditText) findViewById(R.id.et2);
-		mtel = (EditText) findViewById(R.id.et3);
-		moffice = (EditText) findViewById(R.id.et5);
-		mphone = (EditText) findViewById(R.id.et4);
-		mEmail = (EditText) findViewById(R.id.et6);
-		mweek = (EditText) findViewById(R.id.et7);
-		mweeknumber = (EditText) findViewById(R.id.spinner2);
-		mtime = (EditText) findViewById(R.id.spinner1);
+		mClass = (EditText)findViewById(R.id.et0);
+		mClassRoom = (EditText)findViewById(R.id.et1);
+		mTeacher = (EditText)findViewById(R.id.et2);
+		mTeacherRoom = (EditText)findViewById(R.id.et3);
+		mWeekStart = (EditText)findViewById(R.id.et41);
+		mWeekEnd = (EditText)findViewById(R.id.et42);
+		classWeekNo = (EditText)findViewById(R.id.et5);
+		classNo = (EditText)findViewById(R.id.et6);
+		tEmail = (EditText)findViewById(R.id.et7);
+		tTel = (EditText)findViewById(R.id.et8);
+		tPhone = (EditText)findViewById(R.id.et9);
+		cancelBtn = (Button)findViewById(R.id.btn9);
+		sureBtn = (Button)findViewById(R.id.btn10);
 
-		sure.setOnClickListener(new OnClickListener() {
+		sureBtn.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -57,99 +57,60 @@ public class addActivity extends Activity {
 				helper.getWritableDatabase();
 				DBService service = new ClassDao(getBaseContext());
 				ContentValues values = new ContentValues();
-				
-				String classstr = mclass.getText().toString();
-				String classroomstr = mclassroom.getText().toString();
-				String teacherstr = mteacher.getText().toString();
-				String telstr = mtel.getText().toString();
-				String phonestr = mphone.getText().toString();
-				String officestr = moffice.getText().toString();
-				String emailstr = mEmail.getText().toString();
-				String weekstr = mweek.getText().toString();
-				String timestr = mtime.getText().toString();
-				//classTimeΪ�ڼ���������ڼ��ϿεĽ�ϣ����Ժ���ҿγ̵Ĺؼ�
-				String weeknumberstr = mweeknumber.getText().toString();
-				//String classTime = timestr+weeknumberstr;
-				
-				/*String[] classNum = new String[]{
-					"1","2","3","4","5","6","7"	
-				};
-				ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(null, android.R.layout.simple_spinner_dropdown_item, classNum);
-				mtime.setAdapter(adapter1);
-				mtime.setOnItemSelectedListener(new OnItemSelectedListener(){
+				Log.d("---------------", "right");
+				String classStr = mClass.getText().toString();
+				String classRoomStr = mClassRoom.getText().toString();
+				String teacherStr = mTeacher.getText().toString();
+				String teacherRoomStr = mTeacherRoom.getText().toString();
+				String weekStartStr = mWeekStart.getText().toString();
+				String weekEndStr = mWeekEnd.getText().toString();
+				String classWeekNoStr = classWeekNo.getText().toString();
+				String classNoStr = classNo.getText().toString();
+				String tEmailStr = tEmail.getText().toString();
+				String tPhoneStr = tPhone.getText().toString();
+				String tTelStr = tTel.getText().toString();
 
-					@Override
-					public void onItemSelected(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-						timestr = mtime.getSelectedItem().toString();
-						
-					}
-
-					@Override
-					public void onNothingSelected(AdapterView<?> arg0) {
-						
-						
-					}
-					
-				});
-				String[] weekNum = new String[]{
-
-				};
-				ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(null, android.R.layout.simple_spinner_item, weekNum);
-				mweeknumber.setAdapter(adapter2);
-				mweeknumber.setOnItemSelectedListener(new OnItemSelectedListener(){
-
-					@Override
-					public void onItemSelected(AdapterView<?> arg0, View arg1,
-							int arg2, long arg3) {
-						weeknumberstr = mtime.getSelectedItem().toString();
-						
-					}
-
-					@Override
-					public void onNothingSelected(AdapterView<?> arg0) {
-						
-						
-					}
-					
-				});*/
-				String classTime = timestr+weeknumberstr;
-				values.put("class", classstr);
-				values.put("classroom", classroomstr);
-				values.put("teacher", teacherstr);
-				values.put("tel", telstr);
-				values.put("phone", phonestr);
-				values.put("office", officestr);
-				values.put("email", emailstr);
-				values.put("week", weekstr);
-				values.put("classTime", classTime);
-				
+				values.put("class", classStr);
+				values.put("classroom", classRoomStr);
+				values.put("teacher", teacherStr);
+				values.put("tel", tTelStr);
+				values.put("phone", tPhoneStr);
+				values.put("office", teacherRoomStr);
+				values.put("email", tEmailStr);
+				values.put("week", classWeekNoStr);
+				values.put("classTime", classNoStr);
+				values.put("classStart", weekStartStr);
+				values.put("classEnd", weekEndStr);
 
 				boolean flag = service.addClass(values);
-				//Log.i("addActivity", "---->" + flag);
-				
-				/*Map<String, String> map = service.selectClass("class=?", new String[]{classstr});
-				 Iterator iterator=map.keySet().iterator();
-			        while(iterator.hasNext())
-			        {
-			            Object o=iterator.next() ;
-
-			           String key=(String)o;
-
-			           String value=(String)map.get(key);
-
-			           System.out.println( key+":"+"="+value);
-			        }*/
-
-				Intent intent = new Intent();
-				intent.setClass(addActivity.this, MainActivity.class);
-				startActivity(intent);
-				finish();
-
+				if(flag){
+					mClass.setText("");
+					mClass.setHint("");
+					mClassRoom.setText("");
+					mClassRoom.setHint("");
+					mTeacher.setText("");
+					mTeacher.setHint("");
+					mTeacherRoom.setText("");
+					mTeacherRoom.setHint("");
+					mWeekStart.setText("");
+					mWeekStart.setHint("");
+					mWeekEnd.setText("");
+					mWeekEnd.setHint("");
+					classWeekNo.setText("");
+					classWeekNo.setHint("");
+					classNo.setText("");
+					classNo.setHint("");
+					tEmail.setText("");
+					tEmail.setHint("");
+					tTel.setText("");
+					tTel.setHint("");
+					tPhone.setText("");
+					tPhone.setHint("");
+				}
 			}
 		});
 
-		cancel.setOnClickListener(new OnClickListener() {
+		cancelBtn.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
