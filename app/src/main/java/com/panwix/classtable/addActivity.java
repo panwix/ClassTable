@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -57,7 +56,6 @@ public class addActivity extends Activity{
 				helper.getWritableDatabase();
 				DBService service = new ClassDao(getBaseContext());
 				ContentValues values = new ContentValues();
-				Log.d("---------------", "right");
 				String classStr = mClass.getText().toString();
 				String classRoomStr = mClassRoom.getText().toString();
 				String teacherStr = mTeacher.getText().toString();

@@ -3,10 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,11 +11,11 @@
 <TableLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/ee">
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -71,9 +67,11 @@
             android:textColor="#000"/>
     </TableRow>
     <TableRow
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
@@ -81,37 +79,57 @@
             android:textColor="#000"/>
         <TextView
             android:id="@+id/c11"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="1"
+            android:text="    "
+            android:ellipsize="end"
+            android:maxEms="0"
+            android:singleLine="true"
             android:gravity="center"
             android:textColor="#000"/>
         <TextView
             android:id="@+id/c21"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:gravity="center"
+            android:text="    "
+            android:ellipsize="end"
+            android:maxEms="0"
+            android:singleLine="true"
             android:textColor="#000"/>
         <TextView
             android:id="@+id/c31"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="1"
+            android:text="    "
+            android:ellipsize="end"
+            android:maxEms="0"
+            android:singleLine="true"
             android:gravity="center"
             android:textColor="#000"/>
         <TextView
             android:id="@+id/c41"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="1"
+            android:text="    "
+            android:ellipsize="end"
+            android:maxEms="0"
+            android:singleLine="true"
             android:gravity="center"
             android:textColor="#000"/>
         <TextView
             android:id="@+id/c51"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxEms="4"
+            android:singleLine="true"
+            android:text="现代计算机信息技术"
             android:gravity="center"
             android:textColor="#000"/>
     </TableRow>
@@ -569,7 +587,6 @@
     </TableRow>
 </TableLayout>
     </ScrollView>
-</LinearLayout>
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

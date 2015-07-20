@@ -2,12 +2,13 @@ package com.panwix.classtable;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.panwix.classtable.database.ClassDao;
+import com.panwix.classtable.database.DBService;
 import com.panwix.classtable.database.DBhelper;
 
 public class deleteActivity extends Activity {
@@ -35,28 +36,32 @@ public class deleteActivity extends Activity {
 			public void onClick(View v) {
 
 				DBhelper helper = new DBhelper(getBaseContext());
-				SQLiteDatabase database = helper.getWritableDatabase();
+				helper.getWritableDatabase();
+				DBService service = new ClassDao(getBaseContext());
 				String edtWeekStartStr = edtWeekStart.getText().toString();
 				String edtWeekEndStr = edtWeekEnd.getText().toString();
 				String edtWeekStr = edtWeek.getText().toString();
 				String edtTimeStr = edtTime.getText().toString();
+				String whereArgs[] = {edtWeek.getText().toString(), edtTime.getText().toString(),
+						edtWeekStart.getText().toString(), edtWeekEnd.getText().toString()};
 				if (!edtWeekStartStr.equals("")
 						&& !edtWeekEndStr.equals("")
 						&& !edtWeekStr.equals("")
 						&& !edtTimeStr.equals("")) {
-					String sql = ("delete from Class where  week= " +edtWeekStr+"classTime = "
-							+ edtTimeStr + "classStart = "
-							+ edtWeekStartStr +"classEnd = "
-							+ edtWeekEndStr );
-					database.execSQL(sql);
+//					String sql = ("delete from Class where  week= " +edtWeekStr+"classTime = "
+//							+ edtTimeStr + "classStart = "
+//							+ edtWeekStartStr +"classEnd = "
+//							+ edtWeekEndStr );
+					String whereClaus[] = {"week", "classTime", "classStart", "classEnd"};
+					Boolean flag = service.deleteClass("week=? and classTime=? and classStart=? and classEnd=?",whereArgs);
+					if(flag) {
+						Intent intent = new Intent();
+						intent.setClass(deleteActivity.this, MainActivity.class);
+						startActivity(intent);
+						finish();
+					}
 				}
-				Intent intent = new Intent();
-				intent.setClass(deleteActivity.this, MainActivity.class);
-				startActivity(intent);
-				finish();
-
-			}
-		});
+		}});
 
 		cancelBtn.setOnClickListener(new View.OnClickListener() {
 

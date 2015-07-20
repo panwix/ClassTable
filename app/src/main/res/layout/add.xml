@@ -30,6 +30,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
                     android:hint="大学英语"
+                    android:singleLine="true"
                     android:layout_weight="5">
             </EditText>
             </TableRow>
