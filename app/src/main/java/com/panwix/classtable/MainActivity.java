@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.panwix.classtable.database.DBhelper;
@@ -18,7 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainActivity extends Activity implements Runnable{
+public class MainActivity extends Activity implements Runnable, View.OnClickListener{
 
 	// 日期
 	public TextView date;
@@ -246,6 +247,62 @@ public class MainActivity extends Activity implements Runnable{
         c59.setText(mClass[4][8]);
         c510.setText(mClass[4][9]);
         c511.setText(mClass[4][10]);
+		c11.setOnClickListener(this);
+		c12.setOnClickListener(this);
+		c13.setOnClickListener(this);
+		c14.setOnClickListener(this);
+		c15.setOnClickListener(this);
+		c16.setOnClickListener(this);
+		c17.setOnClickListener(this);
+		c18.setOnClickListener(this);
+		c19.setOnClickListener(this);
+		c110.setOnClickListener(this);
+		c111.setOnClickListener(this);
+		c21.setOnClickListener(this);
+		c22.setOnClickListener(this);
+		c23.setOnClickListener(this);
+		c24.setOnClickListener(this);
+		c25.setOnClickListener(this);
+		c26.setOnClickListener(this);
+		c27.setOnClickListener(this);
+		c28.setOnClickListener(this);
+		c29.setOnClickListener(this);
+		c210.setOnClickListener(this);
+		c211.setOnClickListener(this);
+		c31.setOnClickListener(this);
+		c32.setOnClickListener(this);
+		c33.setOnClickListener(this);
+		c34.setOnClickListener(this);
+		c35.setOnClickListener(this);
+		c36.setOnClickListener(this);
+		c37.setOnClickListener(this);
+		c38.setOnClickListener(this);
+		c39.setOnClickListener(this);
+		c310.setOnClickListener(this);
+		c311.setOnClickListener(this);
+		c41.setOnClickListener(this);
+		c42.setOnClickListener(this);
+		c43.setOnClickListener(this);
+		c44.setOnClickListener(this);
+		c45.setOnClickListener(this);
+		c46.setOnClickListener(this);
+		c47.setOnClickListener(this);
+		c48.setOnClickListener(this);
+		c49.setOnClickListener(this);
+		c410.setOnClickListener(this);
+		c411.setOnClickListener(this);
+		c51.setOnClickListener(this);
+		c52.setOnClickListener(this);
+		c53.setOnClickListener(this);
+		c54.setOnClickListener(this);
+		c55.setOnClickListener(this);
+		c56.setOnClickListener(this);
+		c57.setOnClickListener(this);
+		c58.setOnClickListener(this);
+		c59.setOnClickListener(this);
+		c510.setOnClickListener(this);
+		c511.setOnClickListener(this);
+
 
 		// 动态设置时间日期
 		handler = new Handler() {
@@ -393,5 +450,350 @@ public class MainActivity extends Activity implements Runnable{
                 finish();
 		}
 		return super.onMenuItemSelected(featureId, item);
+	}
+
+	public void goToActivity(String weekNo, String week, String time){
+		Intent intent = new Intent();
+		intent.setClass(this,showActivity.class);
+		intent.putExtra("weekNo", weekNo);
+		intent.putExtra("week", week);
+		intent.putExtra("time", time);
+		startActivity(intent);
+	}
+
+	public void onClick(View view){
+		String weekNumS;
+		switch (view.getId()){
+			case R.id.c11:
+				if(c11.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "1", "1");
+				}
+				break;
+			case R.id.c12:
+				if(c12.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "1", "2");
+				}
+				break;
+			case R.id.c13:
+				if(c13.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "1", "3");
+				}
+				break;
+			case R.id.c14:
+				if(c14.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "1", "4");
+				}
+				break;
+			case R.id.c15:
+				if(c15.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "1", "5");
+				}
+				break;
+			case R.id.c16:
+				if(c16.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "1", "6");
+				}
+				break;
+			case R.id.c17:
+				if(c17.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "1", "7");
+				}
+				break;
+			case R.id.c18:
+				if(c18.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "1", "8");
+				}
+				break;
+			case R.id.c19:
+				if(c19.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "1", "9");
+				}
+				break;
+			case R.id.c110:
+				if(c110.getText() != "") {
+				weekNumS = weekNum + "";
+				goToActivity(weekNumS, "1", "10");
+			}
+				break;
+			case R.id.c111:
+				if(c111.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "1", "11");
+				}
+				break;
+			case R.id.c21:
+				if(c21.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "2", "1");
+				}
+				break;
+			case R.id.c22:
+				if(c22.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "2", "2");
+				}
+				break;
+			case R.id.c23:
+				if(c23.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "2", "3");
+				}
+				break;
+			case R.id.c24:
+				if(c24.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "2", "4");
+				}
+				break;
+			case R.id.c25:
+				if(c25.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "2", "5");
+				}
+				break;
+			case R.id.c26:
+				if(c26.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "2", "6");
+				}
+				break;
+			case R.id.c27:
+				if(c27.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "2", "7");
+				}
+				break;
+			case R.id.c28:
+				if(c28.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "2", "8");
+				}
+				break;
+			case R.id.c29:
+				if(c29.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "2", "9");
+				}
+				break;
+			case R.id.c210:
+				if(c210.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "2", "10");
+				}
+				break;
+			case R.id.c211:
+				if(c211.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "2", "11");
+				}
+				break;
+			case R.id.c31:
+				if(c31.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "3", "1");
+				}
+				break;
+			case R.id.c32:
+				if(c32.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "3", "2");
+				}
+				break;
+			case R.id.c33:
+				if(c33.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "3", "3");
+				}
+				break;
+			case R.id.c34:
+				if(c34.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "3", "4");
+				}
+				break;
+			case R.id.c35:
+				if(c35.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "3", "5");
+				}
+				break;
+			case R.id.c36:
+				if(c36.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "3", "6");
+				}
+				break;
+			case R.id.c37:
+				if(c37.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "3", "7");
+				}
+				break;
+			case R.id.c38:
+				if(c38.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "3", "8");
+				}
+				break;
+			case R.id.c39:
+				if(c39.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "3", "9");
+				}
+				break;
+			case R.id.c310:
+				if(c310.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "3", "10");
+				}
+				break;
+			case R.id.c311:
+				if(c311.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "3", "11");
+				}
+				break;
+			case R.id.c41:
+				if(c41.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "4", "1");
+				}
+				break;
+			case R.id.c42:
+				if(c42.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "4", "2");
+				}
+				break;
+			case R.id.c43:
+				if(c43.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "4", "3");
+				}
+				break;
+			case R.id.c44:
+				if(c44.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "4", "4");
+				}
+				break;
+			case R.id.c45:
+				if(c45.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "4", "5");
+				}
+				break;
+			case R.id.c46:
+				if(c46.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "4", "6");
+				}
+				break;
+			case R.id.c47:
+				if(c47.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "4", "7");
+				}
+				break;
+			case R.id.c48:
+				if(c48.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "4", "8");
+				}
+				break;
+			case R.id.c49:
+				if(c49.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "4", "9");
+				}
+				break;
+			case R.id.c410:
+				if(c410.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "4", "10");
+				}
+				break;
+			case R.id.c411:
+				if(c411.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "4", "11");
+				}
+				break;
+			case R.id.c51:
+				if(c51.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "5", "1");
+				}
+				break;
+			case R.id.c52:
+				if(c52.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "5", "2");
+				}
+				break;
+			case R.id.c53:
+				if(c53.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "5", "3");
+				}
+				break;
+			case R.id.c54:
+				if(c54.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "5", "4");
+				}
+				break;
+			case R.id.c55:
+				if(c55.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "5", "5");
+				}
+				break;
+			case R.id.c56:
+				if(c56.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "5", "6");
+				}
+				break;
+			case R.id.c57:
+				if(c57.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "5", "7");
+				}
+				break;
+			case R.id.c58:
+				if(c58.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "5", "8");
+				}
+				break;
+			case R.id.c59:
+				if(c59.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "5", "9");
+				}
+				break;
+			case R.id.c510:
+				if(c510.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "5", "10");
+				}
+				break;
+			case R.id.c511:
+				if(c511.getText() != "") {
+					weekNumS = weekNum + "";
+					goToActivity(weekNumS, "5", "11");
+				}
+				break;
+		}
 	}
 }
