@@ -81,9 +81,7 @@
                     android:layout_weight="2"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:text="世界舞蹈欣赏"
-                    android:maxLength="2"
-                    android:background="#70345678"/>
+                    android:maxLength="2" />
                 <TextView
                     android:id="@+id/c21"
                     android:layout_width="match_parent"
@@ -91,9 +89,7 @@
                     android:layout_weight="2"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:text="大学大大啊"
-                    android:maxLength="2"
-                    android:background="#777"/>
+                    android:maxLength="2" />
                 <TextView
                     android:id="@+id/c31"
                     android:layout_width="match_parent"
@@ -101,9 +97,7 @@
                     android:layout_weight="2"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:text="美术"
-                    android:maxLength="2"
-                    android:background="#aaa"/>
+                    android:maxLength="2" />
                 <TextView
                     android:id="@+id/c41"
                     android:layout_width="match_parent"
@@ -111,9 +105,7 @@
                     android:layout_weight="2"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:maxLength="2"
-                    android:text="大学物理"
-                    android:background="#333"/>
+                    android:maxLength="2" />
                 <TextView
                     android:id="@+id/c51"
                     android:layout_width="wrap_content"
@@ -121,9 +113,7 @@
                     android:layout_weight="2"
                     android:gravity="center"
                     android:textColor="#000"
-                    android:text="大学体育"
-                    android:maxLength="2"
-                    android:background="#555"/>
+                    android:maxLength="2" />
             </TableRow>
             <TableRow
                 android:layout_weight="1">
