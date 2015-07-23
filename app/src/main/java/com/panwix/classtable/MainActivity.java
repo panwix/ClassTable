@@ -16,8 +16,10 @@ import com.panwix.classtable.database.DBhelper;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends Activity implements Runnable, View.OnClickListener{
 
@@ -302,6 +304,70 @@ public class MainActivity extends Activity implements Runnable, View.OnClickList
 		c59.setOnClickListener(this);
 		c510.setOnClickListener(this);
 		c511.setOnClickListener(this);
+
+		List<TextView> list = new ArrayList<TextView>();
+		list.add(c11);
+		list.add(c12);
+		list.add(c13);
+		list.add(c14);
+		list.add(c15);
+		list.add(c16);
+		list.add(c17);
+		list.add(c18);
+		list.add(c19);
+		list.add(c110);
+		list.add(c111);
+		list.add(c21);
+		list.add(c22);
+		list.add(c23);
+		list.add(c24);
+		list.add(c25);
+		list.add(c26);
+		list.add(c27);
+		list.add(c28);
+		list.add(c29);
+		list.add(c210);
+		list.add(c211);
+		list.add(c31);
+		list.add(c32);
+		list.add(c33);
+		list.add(c34);
+		list.add(c35);
+		list.add(c36);
+		list.add(c37);
+		list.add(c38);
+		list.add(c39);
+		list.add(c310);
+		list.add(c311);
+		list.add(c41);
+		list.add(c42);
+		list.add(c43);
+		list.add(c44);
+		list.add(c45);
+		list.add(c46);
+		list.add(c47);
+		list.add(c48);
+		list.add(c49);
+		list.add(c410);
+		list.add(c411);
+		list.add(c51);
+		list.add(c52);
+		list.add(c53);
+		list.add(c54);
+		list.add(c55);
+		list.add(c56);
+		list.add(c57);
+		list.add(c58);
+		list.add(c59);
+		list.add(c510);
+		list.add(c511);
+
+		for(TextView tv : list){
+			if(!(""==tv.getText())||(null ==tv.getText())){
+				int num = (int)(Math.random()*0xEEEEEEEE);
+				tv.setBackgroundColor(num);
+			}
+		}
 
 
 		// 动态设置时间日期
