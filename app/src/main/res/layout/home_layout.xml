@@ -9,8 +9,8 @@
         android:scrollbars="none">
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ee">
+            android:layout_height="match_parent"
+            android:background="@drawable/yellow">
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -606,46 +606,8 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#999"
-        android:layout_alignParentBottom="true">
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text=""
-                android:textColor="#000"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text=""
-                android:textColor="#000"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text=""
-                android:textColor="#000"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text=""
-                android:textColor="#000"/>
-        </TableRow>
-    </TableLayout>
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:gravity="top"
-        android:background="#999">
+        android:background="#dddddd">
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -672,7 +634,8 @@
                 android:textColor="#000"/>
         </TableRow>
         <TableRow
-            android:background="#999">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
