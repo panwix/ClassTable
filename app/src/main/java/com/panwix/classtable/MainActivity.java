@@ -7,9 +7,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.panwix.classtable.database.DBhelper;
@@ -21,7 +25,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends Activity implements Runnable, View.OnClickListener{
+public class MainActivity extends Activity implements Runnable, View.OnClickListener, AdapterView.OnItemClickListener{
+	
+	private DrawerLayout mDrawerLayout;
+	private ListView mDrawerList;
+	private ArrayList<String> menuList;
+	private ArrayAdapter<String> adapter;
 
 	// 日期
 	public TextView date;
@@ -104,6 +113,23 @@ public class MainActivity extends Activity implements Runnable, View.OnClickList
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_layout);
+
+		mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+		mDrawerList = (ListView)findViewById(R.id.left_drawer);
+		menuList = new ArrayList<String>();
+
+		menuList.add("设置学期开始日期");
+		menuList.add("添加课程");
+		menuList.add("删除课程");
+		menuList.add("查询课程");
+		menuList.add("退出");
+
+		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menuList);
+		mDrawerList.setAdapter(adapter);
+		mDrawerList.setOnItemClickListener(this);
+
+
+
 		startDate = new Date(2015-7-1);
 		// 日期TextView
 		date = (TextView)findViewById(R.id.date);
@@ -861,5 +887,10 @@ public class MainActivity extends Activity implements Runnable, View.OnClickList
 				}
 				break;
 		}
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		
 	}
 }
