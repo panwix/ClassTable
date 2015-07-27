@@ -3,6 +3,7 @@ package com.panwix.classtable;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,10 +49,6 @@ public class deleteActivity extends Activity {
 						&& !edtWeekEndStr.equals("")
 						&& !edtWeekStr.equals("")
 						&& !edtTimeStr.equals("")) {
-//					String sql = ("delete from Class where  week= " +edtWeekStr+"classTime = "
-//							+ edtTimeStr + "classStart = "
-//							+ edtWeekStartStr +"classEnd = "
-//							+ edtWeekEndStr );
 					String whereClaus[] = {"week", "classTime", "classStart", "classEnd"};
 					Boolean flag = service.deleteClass("week=? and classTime=? and classStart=? and classEnd=?",whereArgs);
 					if(flag) {
@@ -73,5 +70,15 @@ public class deleteActivity extends Activity {
 				finish();
 			}
 		});
+	}
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode==KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+			Intent intent=new Intent();
+			intent.setClass(deleteActivity.this, MainActivity.class);
+			startActivity(intent);
+			deleteActivity.this.finish();
+		}
+		return false;
 	}
 }

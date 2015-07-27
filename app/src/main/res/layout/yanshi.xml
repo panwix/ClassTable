@@ -4,19 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/cc">
-    <com.panwix.classtable.MyTextView
+    android:background="@drawable/yellow">
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="#000"
         android:layout_weight="1"/>
-    <com.panwix.classtable.MyTextView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="    "
         android:layout_weight="1"/>
-    <com.panwix.classtable.MyTextView
+    <TextView
         android:id="@+id/classname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         android:textColor="#000"
         android:layout_weight="1"
         android:textSize="25sp"/>
-    <com.panwix.classtable.MyTextView
+    <TextView
         android:id="@+id/classroom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
         android:textColor="#000"
         android:textSize="17sp"
         android:layout_weight="1"/>
-    <com.panwix.classtable.MyTextView
+    <TextView
         android:id="@+id/week"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
         android:textColor="#000"
         android:textSize="17sp"
         android:layout_weight="1"/>
-    <com.panwix.classtable.MyTextView
+    <TextView
         android:id="@+id/classstart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
         android:textColor="#000"
         android:textSize="17sp"
         android:layout_weight="1"/>
-    <com.panwix.classtable.MyTextView
+    <TextView
         android:id="@+id/teacher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
         android:textColor="#000"
         android:textSize="17sp"
         android:layout_weight="1"/>
-    <com.panwix.classtable.MyTextView
+    <TextView
         android:id="@+id/tearoom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
         android:textColor="#000"
         android:textSize="17sp"
         android:layout_weight="1"/>
-    <com.panwix.classtable.MyTextView
+    <TextView
         android:id="@+id/tel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
         android:textColor="#000"
         android:textSize="17sp"
         android:layout_weight="1"/>
-    <com.panwix.classtable.MyTextView
+    <TextView
         android:id="@+id/phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
         android:textColor="#000"
         android:textSize="17sp"
         android:layout_weight="1"/>
-    <com.panwix.classtable.MyTextView
+    <TextView
         android:id="@+id/mail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -88,13 +88,13 @@
         android:textColor="#000"
         android:textSize="17sp"
         android:layout_weight="1"/>
-    <com.panwix.classtable.MyTextView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="#000"
         android:layout_weight="1"/>
-    <com.panwix.classtable.MyTextView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

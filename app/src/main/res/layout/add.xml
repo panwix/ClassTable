@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/ww"
+    android:background="@drawable/yellow"
     android:orientation="vertical"
     android:padding="5dp"
     android:layout_margin="1dp">
@@ -13,266 +13,319 @@
         android:scrollbars="none">
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <TableRow>
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
                 <TextView
                     android:id="@+id/tv0"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
                     android:text="科目："
                     android:layout_weight="2">
                 </TextView>
-                <EditText
+                <com.panwix.classtable.LineEditText
                     android:id="@+id/et0"
-                    android:alpha="0.2"
-                    android:layout_width="wrap_content"
+                    android:alpha="0.5"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
                     android:hint="大学英语"
-                    android:singleLine="true"
+                    style="?android:attr/textViewStyle"
+                    android:padding="8dp"
+                    android:background="@null"
                     android:layout_weight="5">
-            </EditText>
+            </com.panwix.classtable.LineEditText>
             </TableRow>
 
-            <TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
                 <TextView
                     android:id="@+id/tv1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
                     android:text="教室："
                     android:layout_weight="2">
                 </TextView>
-                <EditText
+                <com.panwix.classtable.LineEditText
                     android:id="@+id/et1"
-                    android:alpha="0.2"
-                    android:layout_width="wrap_content"
+                    android:alpha="0.5"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
                     android:hint="2A202"
+                    style="?android:attr/textViewStyle"
+                    android:padding="8dp"
+                    android:background="@null"
                     android:layout_weight="5">
-                </EditText>
+                </com.panwix.classtable.LineEditText>
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
                 <TextView
                     android:id="@+id/tv2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
                     android:text="上课老师："
                     android:layout_weight="2">
                 </TextView>
-                <EditText
+                <com.panwix.classtable.LineEditText
                     android:id="@+id/et2"
-                    android:alpha="0.2"
-                    android:layout_width="wrap_content"
+                    android:alpha="0.5"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
                     android:hint="王老师"
+                    style="?android:attr/textViewStyle"
+                    android:padding="8dp"
+                    android:background="@null"
                     android:layout_weight="5">
-                </EditText>
+                </com.panwix.classtable.LineEditText>
             </TableRow>
 
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp" >
             <TextView
                 android:id="@+id/tv3"
                 android:textColor="#000000"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="办公室地址："
+                android:text="办公室："
                 android:layout_weight="2">
             </TextView>
-            <EditText
+            <com.panwix.classtable.LineEditText
                 android:id="@+id/et3"
-                android:alpha="0.2"
-                android:layout_width="match_parent"
+                android:alpha="0.5"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
                 android:hint="外国语学院201"
+                style="?android:attr/textViewStyle"
+                android:padding="8dp"
+                android:background="@null"
                 android:layout_weight="5">
-            </EditText>
+            </com.panwix.classtable.LineEditText>
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp" >
             <TextView
                 android:id="@+id/tv41"
                 android:textColor="#000000"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="上课开始周："
+                android:text="开始周："
                 android:layout_weight="2">
             </TextView>
-            <EditText
+            <com.panwix.classtable.LineEditText
                 android:id="@+id/et41"
-                android:alpha="0.2"
+                android:alpha="0.5"
                 android:textColor="#000000"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:digits="0123456789"
                 android:hint="2"
+                style="?android:attr/textViewStyle"
+                android:padding="8dp"
+                android:background="@null"
                 android:layout_weight="5">
-            </EditText>
+            </com.panwix.classtable.LineEditText>
         </TableRow>
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" >
                 <TextView
                     android:id="@+id/tv42"
                     android:textColor="#000000"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="上课结束周："
+                    android:text="结束周："
                     android:layout_weight="2">
                 </TextView>
-                <EditText
+                <com.panwix.classtable.LineEditText
                     android:id="@+id/et42"
-                    android:alpha="0.2"
+                    android:alpha="0.5"
                     android:textColor="#000000"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:digits="0123456789"
                     android:hint="10"
+                    style="?android:attr/textViewStyle"
+                    android:padding="8dp"
+                    android:background="@null"
                     android:layout_weight="5">
-                </EditText>
+                </com.panwix.classtable.LineEditText>
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" >
                 <TextView
                     android:id="@+id/tv5"
                     android:textColor="#000000"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="周几上课："
                     android:layout_weight="2">
                 </TextView>
-                <EditText
+                <com.panwix.classtable.LineEditText
                     android:id="@+id/et5"
-                    android:alpha="0.2"
+                    android:alpha="0.5"
                     android:textColor="#000000"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:digits="0123456789"
                     android:hint="2"
+                    style="?android:attr/textViewStyle"
+                    android:padding="8dp"
+                    android:background="@null"
                     android:layout_weight="5">
-                </EditText>
+                </com.panwix.classtable.LineEditText>
             </TableRow>
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp" >
             <TextView
                 android:id="@+id/tv6"
                 android:textColor="#000000"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="上课在第几节："
+                android:text="第几节课："
                 android:layout_weight="2">
             </TextView>
-            <EditText
+            <com.panwix.classtable.LineEditText
                 android:id="@+id/et6"
-                android:alpha="0.2"
+                android:alpha="0.5"
                 android:textColor="#000000"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:digits="0123456789"
                 android:hint="3"
+                style="?android:attr/textViewStyle"
+                android:padding="8dp"
+                android:background="@null"
                 android:layout_weight="5">
-            </EditText>
+            </com.panwix.classtable.LineEditText>
         </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" >
                 <TextView
                     android:id="@+id/tv7"
                     android:textColor="#000000"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Email："
                     android:layout_weight="2">
                 </TextView>
-                <EditText
+                <com.panwix.classtable.LineEditText
                     android:id="@+id/et7"
-                    android:alpha="0.2"
+                    android:alpha="0.5"
                     android:textColor="#000000"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:hint="wang@163.com"
+                    style="?android:attr/textViewStyle"
+                    android:padding="8dp"
+                    android:background="@null"
                     android:layout_weight="5">
-                </EditText>
+                </com.panwix.classtable.LineEditText>
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" >
                 <TextView
                     android:id="@+id/tv8"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:text="联系电话(座机)："
+                    android:text="座机："
                     android:layout_weight="2">
                 </TextView>
-                <EditText
+                <com.panwix.classtable.LineEditText
                     android:id="@+id/et8"
-                    android:alpha="0.2"
-                    android:layout_width="wrap_content"
+                    android:alpha="0.5"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
                     android:hint="021-12345678"
                     android:digits="0123456789"
+                    style="?android:attr/textViewStyle"
+                    android:padding="8dp"
+                    android:background="@null"
                     android:layout_weight="5">
-                </EditText>
+                </com.panwix.classtable.LineEditText>
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" >
                 <TextView
                     android:id="@+id/tv9"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:text="联系电话(手机)："
+                    android:text="手机："
                     android:layout_weight="2">
                 </TextView>
-                <EditText
+                <com.panwix.classtable.LineEditText
                     android:id="@+id/et9"
-                    android:alpha="0.2"
-                    android:layout_width="wrap_content"
+                    android:alpha="0.5"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
                     android:digits="0123456789"
                     android:hint="15021241818"
+                    style="?android:attr/textViewStyle"
+                    android:padding="8dp"
+                    android:background="@null"
                     android:layout_weight="5">
-                </EditText>
+                </com.panwix.classtable.LineEditText>
             </TableRow>
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" >
-            <Button
-                android:id="@+id/btn9"
-                android:textColor="#000000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="取消"
-                android:layout_weight="1">
-            </Button>
-            <Button
-                android:id="@+id/btn10"
-                android:textColor="#000000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="提交"
-                android:layout_weight="1">
-            </Button>
-        </TableRow>
+            <TableRow
+                android:layout_margin="8dp" >
+                <Button
+                    android:id="@+id/btn9"
+                    android:textColor="#000000"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="返回"
+                    android:textSize="30dp"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/mybutton">
+                </Button>
+                <Button
+                    android:id="@+id/btn10"
+                    android:textColor="#000000"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="提交"
+                    android:textSize="30dp"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/mybutton">
+                </Button>
+            </TableRow>
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -289,4 +342,10 @@
             </TableRow>
     </TableLayout>
   </ScrollView>
-</LinearLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+    </TableLayout>
+</RelativeLayout>

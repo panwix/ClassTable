@@ -37,8 +37,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
                     </TableRow>
-                        <TableRow
-                            android:background="#999">
+                        <TableRow>
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
@@ -616,7 +615,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="top"
-                    android:background="#CCCCCC">
+                    android:background="#ffffffee">
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -694,13 +693,13 @@
     <!-- The navigation view-->
     <ListView
         android:id="@+id/left_drawer"
-        android:layout_width="240dp"
+        android:layout_width="64dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="#ffffcc"
+        android:background="#ffffffee"
         android:choiceMode="singleChoice"
         android:divider="@android:color/transparent"
-        android:dividerHeight="0dp"
-        android:textColor="#000"></ListView>
+        android:textColor="#000"
+        android:scrollbars="none"></ListView>
 
 </android.support.v4.widget.DrawerLayout>

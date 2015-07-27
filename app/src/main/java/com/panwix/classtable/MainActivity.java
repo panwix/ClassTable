@@ -12,8 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.panwix.classtable.database.DBhelper;
@@ -23,15 +23,15 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends Activity implements Runnable, View.OnClickListener, AdapterView.OnItemClickListener{
 	
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
-	private ArrayList<String> menuList;
-	private ArrayAdapter<String> adapter;
-
+	private ArrayList<Integer> menuList;
+	private SimpleAdapter adapter;
 	// 日期
 	public TextView date;
 	// 第几周
@@ -116,19 +116,33 @@ public class MainActivity extends Activity implements Runnable, View.OnClickList
 
 		mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
 		mDrawerList = (ListView)findViewById(R.id.left_drawer);
-		menuList = new ArrayList<String>();
 
-		menuList.add("设置学期开始日期");
-		menuList.add("添加课程");
-		menuList.add("删除课程");
-		menuList.add("查询课程");
-		menuList.add("退出");
+		ArrayList data = new ArrayList();
+		HashMap map = new HashMap();
+		map.put("itemImage", R.drawable.add);
+		data.add(map);
 
-		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menuList);
+		map = new HashMap();
+		map.put("itemImage", R.drawable.delete);
+		data.add(map);
+
+		map = new HashMap();
+		map.put("itemImage", R.drawable.search);
+		data.add(map);
+
+		map = new HashMap();
+		map.put("itemImage", R.drawable.setting);
+		data.add(map);
+
+		map = new HashMap();
+		map.put("itemImage", R.drawable.exit);
+		data.add(map);
+
+
+		adapter = new SimpleAdapter(this, data, R.layout.item_menu,
+				new String[]{"itemImage"},new int[]{R.id.item_image});
 		mDrawerList.setAdapter(adapter);
 		mDrawerList.setOnItemClickListener(this);
-
-
 
 		startDate = new Date(2015-7-1);
 		// 日期TextView
@@ -511,9 +525,9 @@ public class MainActivity extends Activity implements Runnable, View.OnClickList
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, 0, 0, "添加添加课程");
-		menu.add(0, 1, 1, "删除课程");
-        menu.add(0, 2, 2, "退出");
+//		menu.add(0, 0, 0, "添加添加课程");
+//		menu.add(0, 1, 1, "删除课程");
+//        menu.add(0, 2, 2, "退出");
 
 		return super.onCreateOptionsMenu(menu);
 	}
@@ -521,7 +535,7 @@ public class MainActivity extends Activity implements Runnable, View.OnClickList
 
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
-		super.onOptionsItemSelected(item);
+		/*super.onOptionsItemSelected(item);
 		switch (item.getItemId()) {
 			//  跳转到添加课程页面
 			case 0:
@@ -540,8 +554,13 @@ public class MainActivity extends Activity implements Runnable, View.OnClickList
             // 退出应用程序
             case 2:
                 finish();
-		}
+		}*/
 		return super.onMenuItemSelected(featureId, item);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		return true;
 	}
 
 	public void goToActivity(String weekNo, String week, String time){
@@ -891,6 +910,35 @@ public class MainActivity extends Activity implements Runnable, View.OnClickList
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-		
+		switch (position){
+			//  跳转到添加课程页面
+			case 0:
+				Intent intent0 = new Intent();
+				intent0.setClass(MainActivity.this, addActivity.class);
+				startActivity(intent0);
+				finish();
+				break;
+			// 跳转到删除课程页面
+			case 1:
+				Intent intent1 = new Intent();
+				intent1.setClass(MainActivity.this, deleteActivity.class);
+				startActivity(intent1);
+				finish();
+				break;
+			// 查询课程
+			case 2:
+				Intent intent2 = new Intent();
+				intent2.setClass(MainActivity.this, queryActivity.class);
+				startActivity(intent2);
+				break;
+			// 设置课程
+			case 3:
+				Intent intent3 = new Intent();
+				intent3.setClass(MainActivity.this, settingActivity.class);
+				startActivity(intent3);
+			// 退出应用程序
+			case 4:
+				finish();
+		}
 	}
 }
