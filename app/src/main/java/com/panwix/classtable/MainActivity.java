@@ -2,11 +2,13 @@ package com.panwix.classtable;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,6 +34,8 @@ public class MainActivity extends Activity implements Runnable, View.OnClickList
 	private ListView mDrawerList;
 	private ArrayList<Integer> menuList;
 	private SimpleAdapter adapter;
+	// 用于ActionBar图标按钮的实现
+	private ActionBarDrawerToggle mDrawerToggle;
 	// 日期
 	public TextView date;
 	// 第几周
@@ -41,6 +45,7 @@ public class MainActivity extends Activity implements Runnable, View.OnClickList
 	public TextView time;
 
 	// 学期开始日期
+	public String sDate = "2015-07-01";
 	public Date startDate;
 	// 周一的课；
 	public TextView c11;
@@ -144,6 +149,27 @@ public class MainActivity extends Activity implements Runnable, View.OnClickList
 		mDrawerList.setAdapter(adapter);
 		mDrawerList.setOnItemClickListener(this);
 
+		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close){
+			/** Called when a drawer has settled in a completely closed state. */
+			public void onDrawerClosed(View view) {
+				super.onDrawerClosed(view);
+				getActionBar().setTitle("closed");
+				invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+			}
+
+			/** Called when a drawer has settled in a completely open state. */
+			public void onDrawerOpened(View drawerView) {
+				super.onDrawerOpened(drawerView);
+				getActionBar().setTitle("opened");
+				invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+			}
+		};
+		mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+		// 开启ActionBar上APP ICON的功能
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setHomeButtonEnabled(true);
+
 		startDate = new Date(2015-7-1);
 		// 日期TextView
 		date = (TextView)findViewById(R.id.date);
@@ -215,7 +241,7 @@ public class MainActivity extends Activity implements Runnable, View.OnClickList
 		// 设置第几周
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			Date d1=sdf.parse("2015-07-06");
+			Date d1=sdf.parse(sDate);
 			Date d2=new Date();
 			weekNum = getWeedNo(d1,d2);
 			String numStr = "第" + weekNum + "周";
@@ -560,6 +586,10 @@ public class MainActivity extends Activity implements Runnable, View.OnClickList
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		// 将ActionBar上的图标与Drawer结合起来
+		if(mDrawerToggle.onOptionsItemSelected(item)){
+			return true;
+		}
 		return true;
 	}
 
@@ -935,10 +965,44 @@ public class MainActivity extends Activity implements Runnable, View.OnClickList
 			case 3:
 				Intent intent3 = new Intent();
 				intent3.setClass(MainActivity.this, settingActivity.class);
-				startActivity(intent3);
+				startActivityForResult(intent3, R.layout.setting);
+				break;
 			// 退出应用程序
 			case 4:
 				finish();
 		}
+	}
+
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		switch (resultCode) { //resultCode为回传的标记，我在B中回传的是RESULT_OK
+			case R.layout.home_layout:
+				Bundle b=data.getExtras(); //data为B中回传的Intent
+				sDate=b.getString("date");//str即为回传的值
+				try {
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+					Date d1=sdf.parse(sDate);
+					Date d2=new Date();
+					weekNum = getWeedNo(d1,d2);
+					String numStr = "第" + weekNum + "周";
+					week.setText(numStr);
+				} catch (ParseException e){
+					e.printStackTrace();
+				}
+				break;
+			default:
+				break;
+		}
+	}
+
+	@Override
+	protected void onPostCreate(Bundle savedInstanceState) {
+		super.onPostCreate(savedInstanceState);
+		mDrawerToggle.syncState();
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
+		mDrawerToggle.onConfigurationChanged(newConfig);
 	}
 }
